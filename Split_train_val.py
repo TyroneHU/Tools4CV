@@ -27,7 +27,7 @@ def split_train_val(all_path, split_ratio):
     trainset_num = np.random.randint(0, all_image_num-1, int(split_ratio * all_image_num))
 
     print('Start to split dataset...')
-    for i in range(all_image_num):
+    for i in range(all_image_list):
         print(all_image_list[i])
         image_name = all_image_list[i].split('\\')[-1]
         label_name = image_name.split('.')[0] + '.txt'
