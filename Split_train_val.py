@@ -22,12 +22,12 @@ def split_train_val(all_path, split_ratio):
     if not os.path.exists(val_label_path):
         os.makedirs(val_label_path, 0o777)
 
-    all_image_list = glob(os.path.join(all_image_path, '*.jpg'))
-    all_image_num = all_image_list.__sizeof__()
+    all_image_list = glob(os.path.join(all_image_path, '*'))
+    all_image_num = len(all_image_list)
     trainset_num = np.random.randint(0, all_image_num-1, int(split_ratio * all_image_num))
 
     print('Start to split dataset...')
-    for i in range(all_image_list):
+    for i in range(all_image_num):
         print(all_image_list[i])
         image_name = all_image_list[i].split('\\')[-1]
         label_name = image_name.split('.')[0] + '.txt'
@@ -45,39 +45,7 @@ def split_train_val(all_path, split_ratio):
 
 
 def main():
-    all_path = r''
+    all_path = r'F:\datasets\Standard_alg\车辆驶入驶出方案一\Project_SPC\truck'
     split_ratio = 0.95
 
     split_train_val(all_path, split_ratio)
-
-
-
-if __name__ == '__main__':
-    main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
