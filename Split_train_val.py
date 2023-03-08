@@ -26,7 +26,7 @@ def split_train_val(all_path, split_ratio):
     all_image_list = glob(os.path.join(all_image_path, '*'))
     all_image_num = len(all_image_list)
     trainset_num = sorted(random.sample(range(all_image_num), int(split_ratio * all_image_num)))
-    mm = max(trainset_num)
+    
     print('Start to split dataset...')
     for i in range(all_image_num):
         print(all_image_list[i])
