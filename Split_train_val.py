@@ -46,7 +46,7 @@ def split_train_val(all_path, split_ratio):
 
 
 def main():
-    all_path = r'F:\datasets\Standard_alg\车辆驶入驶出方案一\Project_SPC\truck'
+    all_path = r''
     split_ratio = 0.9
 
     split_train_val(all_path, split_ratio)
