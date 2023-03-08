@@ -1,5 +1,6 @@
 import os
 import shutil
+import random
 import numpy as np
 from glob import glob
 
@@ -24,8 +25,8 @@ def split_train_val(all_path, split_ratio):
 
     all_image_list = glob(os.path.join(all_image_path, '*'))
     all_image_num = len(all_image_list)
-    trainset_num = np.random.randint(0, all_image_num-1, int(split_ratio * all_image_num))
-
+    trainset_num = sorted(random.sample(range(all_image_num), int(split_ratio * all_image_num)))
+    mm = max(trainset_num)
     print('Start to split dataset...')
     for i in range(all_image_num):
         print(all_image_list[i])
@@ -46,6 +47,11 @@ def split_train_val(all_path, split_ratio):
 
 def main():
     all_path = r'F:\datasets\Standard_alg\车辆驶入驶出方案一\Project_SPC\truck'
-    split_ratio = 0.95
+    split_ratio = 0.9
 
     split_train_val(all_path, split_ratio)
+
+
+
+if __name__ == '__main__':
+    main()
