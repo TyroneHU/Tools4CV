@@ -37,7 +37,7 @@ def update_images(label_path, image_path):
     print('Start to select needed image...')
     for image_name in image_list:
         print(image_name)
-        label_name = (image_name.split('\\')[-1]).split('.')[0] + '.txt'
+        label_name = (image_name.split('\\')[-1])[:-4] + '.txt'
         label_name = os.path.join(new_label_path, label_name)
         if label_name in new_label_list:
             shutil.copy(image_name, new_image_path)
