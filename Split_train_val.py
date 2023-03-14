@@ -31,7 +31,7 @@ def split_train_val(all_path, split_ratio):
     for i in range(all_image_num):
         print(all_image_list[i])
         image_name = all_image_list[i].split('\\')[-1]
-        label_name = image_name.split('.')[0] + '.txt'
+        label_name = image_name[:-4] + '.txt'
         if i in trainset_num:
             shutil.copy(all_image_list[i], train_image_path)
             shutil.copy(os.path.join(all_label_path, label_name), train_label_path)
